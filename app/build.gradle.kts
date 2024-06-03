@@ -53,7 +53,9 @@ android {
 }
 
 dependencies {
+    val kotlin_version = "1.5.21"
 
+    implementation("org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version")
     implementation("androidx.core:core-ktx:1.13.1")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.8.1")
     implementation("androidx.activity:activity-compose:1.9.0")
@@ -84,8 +86,8 @@ dependencies {
     implementation ("androidx.navigation:navigation-compose:$nav_version")
 
     //Dagger Hilt
-    implementation ("com.google.dagger:hilt-android:2.44")
-    kapt("com.google.dagger:hilt-android-compiler:2.44")
+    implementation ("com.google.dagger:hilt-android:2.37")
+    annotationProcessor ("com.google.dagger:hilt-android-compiler:2.37")
 
 
     //Retrofit
