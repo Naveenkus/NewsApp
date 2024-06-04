@@ -1,9 +1,9 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
-    id ("kotlin-kapt")
     id ("com.google.dagger.hilt.android")
     id ("kotlin-parcelize")
+    id("com.google.devtools.ksp")
 }
 
 android {
@@ -43,7 +43,7 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.14"
+        kotlinCompilerExtensionVersion = "1.5.13"
     }
     packaging {
         resources {
@@ -53,7 +53,7 @@ android {
 }
 
 dependencies {
-    val kotlin_version = "1.5.21"
+    val kotlin_version = "1.9.23"
 
     implementation("org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version")
     implementation("androidx.core:core-ktx:1.13.1")
@@ -85,9 +85,13 @@ dependencies {
     val nav_version = "2.7.7"
     implementation ("androidx.navigation:navigation-compose:$nav_version")
 
+
     //Dagger Hilt
-    implementation ("com.google.dagger:hilt-android:2.37")
-    annotationProcessor ("com.google.dagger:hilt-android-compiler:2.37")
+    val hilt = "2.50"
+    implementation("com.google.dagger:hilt-android:$hilt")
+    implementation("androidx.hilt:hilt-navigation-compose:1.0.0")
+    ksp("com.google.dagger:hilt-android-compiler:$hilt")
+    ksp("com.google.dagger:hilt-compiler:$hilt")
 
 
     //Retrofit
@@ -116,11 +120,6 @@ dependencies {
     val room_version = "2.6.1"
     implementation ("androidx.room:room-runtime:$room_version")
     annotationProcessor("androidx.room:room-compiler:$room_version")
-    kapt ("androidx.room:room-compiler:$room_version")
+    ksp("androidx.room:room-compiler:$room_version")
     implementation ("androidx.room:room-ktx:$room_version")
-}
-
-// Allow references to generated code
-kapt {
-    correctErrorTypes = true
 }
