@@ -96,7 +96,7 @@ dependencies {
 
     //Retrofit
     implementation( "com.squareup.retrofit2:retrofit:2.9.0")
-    implementation ("com.squareup.retrofit2:converter-scalars:2.9.0")
+    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
 
     //Coil
     implementation(platform("androidx.compose:compose-bom:2024.05.00"))
