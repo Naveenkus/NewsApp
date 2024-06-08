@@ -37,13 +37,13 @@ import com.loc.newsapp.ui.theme.NewsAppTheme
 
 @Composable
 fun ArticleCard(
-//    modifier: Modifier,
+    modifier: Modifier,
     article: Article,
     onClick:() -> Unit
 ){
     val context = LocalContext.current
 
-    Row(modifier = Modifier.clickable { onClick() }) {
+    Row(modifier = modifier.clickable { onClick() }) {
         AsyncImage(
             modifier = Modifier
                 .size(ArticleCardSize)
@@ -76,6 +76,10 @@ fun ArticleCard(
                     tint = colorResource(id = R.color.body)
                 )
                 Spacer(modifier = Modifier.width(ExtraSmallPadding2))
+                Text(text = article.publishedAt,
+                    style = MaterialTheme.typography.labelMedium.copy(fontWeight = FontWeight.Bold),
+                    color = colorResource(id = R.color.body)
+                )
             }
         }
     }
@@ -87,6 +91,7 @@ fun ArticleCard(
 fun ArticleCardPreview(){
     NewsAppTheme {
         ArticleCard(
+            modifier = Modifier,
             article = Article(
                 author = "",
                 content = "",
