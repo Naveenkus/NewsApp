@@ -37,9 +37,8 @@ import com.loc.newsapp.ui.theme.NewsAppTheme
 
 @Composable
 fun ArticleCard(
-    modifier: Modifier,
     article: Article,
-    onClick:() -> Unit
+    onClick: () -> Unit
 ){
     val context = LocalContext.current
 
@@ -91,7 +90,6 @@ fun ArticleCard(
 fun ArticleCardPreview(){
     NewsAppTheme {
         ArticleCard(
-            modifier = Modifier,
             article = Article(
                 author = "",
                 content = "",
@@ -101,7 +99,8 @@ fun ArticleCardPreview(){
                 title = "Her traint broke down. Her phone died. And then she met her saver in a",
             url = "",
             urlToImage = ""
-        )){
+        )
+        ){
 
        }
     }
