@@ -42,14 +42,14 @@ fun ArticleCard(
 ){
     val context = LocalContext.current
 
-    Row(modifier = modifier.clickable { onClick() }) {
+    Row(modifier = Modifier.clickable { onClick() }) {
         AsyncImage(
             modifier = Modifier
                 .size(ArticleCardSize)
                 .clip(MaterialTheme.shapes.medium),
             model = ImageRequest.Builder(context).data(article.urlToImage).build(),
             contentDescription = null,
-            contentScale = ContentScale.Crop
+            contentScale = ContentScale.Crop,
         )
 
         Column (verticalArrangement = Arrangement.SpaceAround,
