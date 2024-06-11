@@ -54,6 +54,7 @@ object AppModule {
     fun provideNewsRepository(
         newsApi: NewsApi
     ): NewsRepository = NewsRepositoryImpl(newsApi)
+
     @Provides
     @Singleton
     fun provideNewsUseCases(
