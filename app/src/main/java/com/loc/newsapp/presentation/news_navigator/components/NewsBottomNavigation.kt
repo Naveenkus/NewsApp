@@ -1,9 +1,6 @@
 package com.loc.newsapp.presentation.news_navigator.components
 
-<<<<<<< HEAD
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
-=======
->>>>>>> origin/main
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -14,7 +11,6 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
-<<<<<<< HEAD
 import androidx.compose.material3.NavigationBarItemDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -28,36 +24,19 @@ import com.loc.newsapp.R
 import com.loc.newsapp.presentation.onboarding.Dimens.ExtraSmallPadding2
 import com.loc.newsapp.presentation.onboarding.Dimens.IconSize
 import com.loc.newsapp.ui.theme.NewsAppTheme
-=======
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment.Companion.CenterHorizontally
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.unit.dp
-import com.loc.newsapp.presentation.onboarding.Dimens.ExtraSmallPadding2
-import com.loc.newsapp.presentation.onboarding.Dimens.IconSize
->>>>>>> origin/main
 
 @Composable
 fun NewsBottomNavigation(
     items: List<BottomNavigationItem>,
     selected: Int,
-<<<<<<< HEAD
     onItemClick: (Int) -> Unit
-=======
-    onSelected: (Int) -> Unit
->>>>>>> origin/main
 ){
     NavigationBar (
         modifier = Modifier.fillMaxWidth(),
         containerColor = MaterialTheme.colorScheme.background,
         tonalElevation = 10.dp
     ){
-<<<<<<< HEAD
         items.forEachIndexed { index, item ->
-=======
-        items.forEachIndexed { index, Item ->
->>>>>>> origin/main
             NavigationBarItem(
                 selected = index == selected,
                 onClick = { onItemClick(index)},
@@ -69,7 +48,6 @@ fun NewsBottomNavigation(
                             modifier = Modifier.size(IconSize)
                         )
                         Spacer(modifier = Modifier.height(ExtraSmallPadding2))
-<<<<<<< HEAD
                         Text(text = item.text, style = MaterialTheme.typography.labelSmall)
                     }
                 },
@@ -81,11 +59,6 @@ fun NewsBottomNavigation(
                     indicatorColor = MaterialTheme.colorScheme.background
                 )
             )
-=======
-                    }
-                }
-                )
->>>>>>> origin/main
         }
     }
 }
@@ -93,26 +66,22 @@ fun NewsBottomNavigation(
 data class BottomNavigationItem(
     @DrawableRes val icon:Int,
     val text: String
-<<<<<<< HEAD
 )
 
 @Preview
 @Preview(uiMode = UI_MODE_NIGHT_YES)
 @Composable
 fun NewsBottomNavigationPreview() {
-        NewsAppTheme {
-            NewsBottomNavigation(
-                items  = listOf(
-                    BottomNavigationItem(icon = R.drawable.ic_home, text = "Home"),
-                    BottomNavigationItem(icon = R.drawable.ic_search, text = "Search"),
-                    BottomNavigationItem(icon = R.drawable.ic_bookmark, text = "Bookmark")
-                ),
-                selected = 0,
-                onItemClick = {}
-            )
+    NewsAppTheme {
+        NewsBottomNavigation(
+            items  = listOf(
+                BottomNavigationItem(icon = R.drawable.ic_home, text = "Home"),
+                BottomNavigationItem(icon = R.drawable.ic_search, text = "Search"),
+                BottomNavigationItem(icon = R.drawable.ic_bookmark, text = "Bookmark")
+            ),
+            selected = 0,
+            onItemClick = {}
+        )
 
-        }
+    }
 }
-=======
-)
->>>>>>> origin/main
