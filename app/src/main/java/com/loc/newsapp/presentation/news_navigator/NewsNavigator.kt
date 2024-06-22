@@ -19,11 +19,17 @@ import androidx.navigation.compose.rememberNavController
 import androidx.paging.compose.collectAsLazyPagingItems
 import com.loc.newsapp.R
 import com.loc.newsapp.domain.model.Article
+import com.loc.newsapp.presentation.bookmark.BookmarkScreen
+import com.loc.newsapp.presentation.bookmark.BookmarkViewModel
+import com.loc.newsapp.presentation.details.DetailsScreen
+import com.loc.newsapp.presentation.details.DetailsViewModel
 import com.loc.newsapp.presentation.home.HomeScreen
 import com.loc.newsapp.presentation.home.HomeViewModel
 import com.loc.newsapp.presentation.news_navigator.components.BottomNavigationItem
 import com.loc.newsapp.presentation.news_navigator.components.NewsBottomNavigation
 import com.loc.newsapp.presentation.nvgraph.Route
+import com.loc.newsapp.presentation.search.SearchScreen
+import com.loc.newsapp.presentation.search.SearchViewModel
 
 @Composable
 fun NewsNavigator(){
@@ -95,6 +101,36 @@ fun NewsNavigator(){
                 )
             }
 
+            composable(route = Route.SearchScreen.route){
+                val viewModel : SearchViewModel = hiltViewModel()
+                val state = viewModel.state.value
+                SearchScreen(
+                    state = state,
+                    event = viewModel::onEvent,
+                    navigateToDetails = { navigateToDetails(navController = navController, article = it) }
+                )
+            }
+
+            composable(route = Route.DetailsScreen.route){
+                val viewModel: DetailsViewModel = hiltViewModel()
+                navController.previousBackStackEntry?.savedStateHandle?.get<Article>("article")
+                ?.let { article ->
+                    DetailsScreen(
+                        article = article,
+                        event = viewModel::onEvent,
+                        navigateUp = { navController.navigateUp() }
+                    )
+                }
+            }
+
+            composable(route = Route.BookmarkScreen.route){
+                val viewModel: BookmarkViewModel = hiltViewModel()
+                val state = viewModel.state.value
+                BookmarkScreen (state = state, navigateToDetails = {article ->
+                    navigateToDetails(navController = navController, article = article)
+
+                })
+            }
         }
     }
 }
