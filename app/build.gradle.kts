@@ -11,7 +11,7 @@ android {
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.newsapp"
+        applicationId = "com.loc.newsapp"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
@@ -122,4 +122,5 @@ dependencies {
     annotationProcessor("androidx.room:room-compiler:$room_version")
     ksp("androidx.room:room-compiler:$room_version")
     implementation ("androidx.room:room-ktx:$room_version")
+
 }

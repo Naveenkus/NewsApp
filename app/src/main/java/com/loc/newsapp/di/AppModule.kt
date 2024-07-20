@@ -75,10 +75,10 @@ object AppModule {
         return NewsUsesCases(
             getNews = GetNews(newsRepository),
             searchNews = SearchNews(newsRepository),
-            upsertArticle = UpsertArticle(newsRepository),
-            deleteArticle = DeleteArticle(newsRepository),
-            selectArticles = SelectArticles(newsRepository),
-            selectArticle = SelectArticle(newsRepository)
+            upsertArticle = UpsertArticle(newsDao),
+            deleteArticle = DeleteArticle(newsDao),
+            selectArticles = SelectArticles(newsDao),
+            selectArticle = SelectArticle(newsDao)
         )
     }
 
